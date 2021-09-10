@@ -5,16 +5,14 @@ class TextWidget extends StatelessWidget {
   final FontWeight fontWeight;
   final Color color;
   final String text;
-  final double height;
 
-  const TextWidget(
-      {Key? key,
-      required this.size,
-      required this.fontWeight,
-      required this.color,
-      required this.text,
-      required this.height})
-      : super(key: key);
+  const TextWidget({
+    Key? key,
+    required this.size,
+    required this.fontWeight,
+    required this.color,
+    required this.text,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +20,6 @@ class TextWidget extends StatelessWidget {
       text,
       style: TextStyle(
         color: color,
-        height: height,
         fontFamily: 'Poppins',
         fontSize: size,
         fontWeight: fontWeight,
