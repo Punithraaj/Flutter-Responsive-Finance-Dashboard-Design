@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_finanace_dashboard_design/config/responsive.dart';
 import 'package:flutter_finanace_dashboard_design/screens/dashboard/BalanceDetails.dart';
 import 'package:flutter_finanace_dashboard_design/screens/dashboard/Header.dart';
 import 'package:flutter_finanace_dashboard_design/screens/dashboard/components/MyInfoCard.dart';
 import 'package:flutter_finanace_dashboard_design/screens/dashboard/components/TransactionHistory.dart';
-import 'package:flutter_finanace_dashboard_design/screens/dashboard/components/barChart.dart';
+import 'package:flutter_finanace_dashboard_design/screens/dashboard/components/paymentDetailList.dart';
 import 'package:flutter_finanace_dashboard_design/util/Constants.dart';
-import 'package:flutter_finanace_dashboard_design/util/TextWidget.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -19,11 +19,31 @@ class DashboardScreen extends StatelessWidget {
           children: [
             Header(),
             SizedBox(height: defaultPadding),
-            MyInfoCard(),
-            SizedBox(height: defaultPadding),
-            BalanceDetails(),
-            SizedBox(height: defaultPadding),
-            TransactionHistory()
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                    flex: 10,
+                    child: Column(
+                      children: [
+                        MyInfoCard(),
+                        SizedBox(height: defaultPadding),
+                        BalanceDetails(),
+                        SizedBox(height: defaultPadding),
+                        TransactionHistory(),
+                        if (!Responsive.isDesktop(context)) PaymentDetailList()
+                      ],
+                    )),
+                if (Responsive.isDesktop(context))
+                  Expanded(
+                    flex: 4,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [PaymentDetailList()],
+                    ),
+                  ),
+              ],
+            )
           ],
         ),
       ),

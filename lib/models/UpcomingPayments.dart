@@ -11,7 +11,7 @@ class UpcomingPayment {
 
 List<UpcomingPayment> upcomingPayments = [
   UpcomingPayment(
-      icon: 'assets/home.svg', label: 'Home Rent', amount: "\$1500"),
+      icon: 'assets/images/home.svg', label: 'Home Rent', amount: "\$1500"),
   UpcomingPayment(
-      icon: 'assets/salary.svg', label: 'Car Insurance', amount: "\$150")
+      icon: 'assets/images/salary.svg', label: 'Car Insurance', amount: "\$150")
 ];
